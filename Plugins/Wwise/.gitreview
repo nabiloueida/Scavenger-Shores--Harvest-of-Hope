@@ -1,0 +1,4 @@
+[gerrit]
+host=git.hq.audiokinetic.com
+project=UnrealPlugins/Wwise
+defaultremote=origin
