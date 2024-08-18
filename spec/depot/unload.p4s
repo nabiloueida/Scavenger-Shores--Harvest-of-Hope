@@ -1,0 +1,36 @@
+# The form data below was edited by perforce
+# A Perforce Depot Specification.
+#
+#  Depot:       The name of the depot.
+#  Owner:       The user who created this depot.
+#  Date:        The date this specification was last modified.
+#  Description: A short description of the depot (optional).
+#  Type:        Whether the depot is 'local', 'remote',
+#               'stream', 'spec', 'archive', 'tangent',
+#               'unload', 'extension', 'trait' or 'graph'.
+#               Default is 'local'.
+#  Address:     Connection address (remote depots only).
+#  Suffix:      Suffix for all saved specs (spec depot only).
+#  StreamDepth: Depth for streams in this depot (stream depots only).
+#  Map:         Path translation information (must have ... in it).
+#  SpecMap:     For spec depot, which specs should be recorded (optional).
+#
+# Use 'p4 help depot' to see more about depot forms.
+
+Depot:	unload
+
+Owner:	perforce
+
+Date:	2024/01/19 08:02:34
+
+Description:
+	This is a singleton depot of type 'unload', the existence of
+	which enables 'p4 unload' and 'p4 reload' commands.  See
+	
+	https://portal.perforce.com/s/article/2473
+	
+	See also 'p4 help unload' and 'p4 help reload'.
+
+Type:	unload
+
+Map:	unload/...
