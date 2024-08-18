@@ -1,0 +1,58 @@
+# The form data below was edited by perforce
+# A Perforce Extension Specification.
+#
+#  ExtName:          The name of the Extension being configured.
+#  ExtDescription:   The description of the Extension being configured.
+#  ExtVersion:       The version of the Extension being configured.
+#  ExtUUID:          The UUID/key of the Extension being configured.
+#  ExtRev:           The revision of the Extension being configured.
+#  ExtMaxScriptTime: Maximum seconds the Extension may be run.
+#  ExtMaxScriptMem:  Maximum megabytes the Extension may use.
+#  ExtEnabled:       Enable/Disable this Extension.
+#  ExtDebug:         Enable Extension diagnostics.
+#  Name:             The name of this Extension config.
+#  Owner:            The user who created this Extension config.
+#  Update:           Update time for the Extension config spec.
+#  Description:      The description of this Extension config.
+#  ExtConfig:        Extension-supplied configuration fields.
+#
+# See 'p4 help extension' for detailed information.
+
+ExtName:	helix-swarm
+
+ExtDescription:
+
+ExtVersion:	2023.4/2546515
+
+ExtUUID:	4532BC59-7BC8-478F-ADF6-0A563C42563D
+
+ExtRev:	1
+
+ExtMaxScriptTime:	unset
+
+ExtMaxScriptMem:	unset
+
+ExtEnabled:	true
+
+ExtDebug:	none
+
+Name:	swarm
+
+Owner:	perforce
+
+Update:	
+
+Description:
+	The description of your config.
+
+ExtConfig:
+	depot-path:
+		//...
+	enableStrict:
+		true
+	enableWorkflow:
+		true
+	httpTimeout:
+		30
+	ignoreErrors:
+		false
