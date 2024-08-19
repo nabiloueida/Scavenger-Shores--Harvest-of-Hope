@@ -1,0 +1,103 @@
+# The form data below was edited by perforce
+# Perforce Submit and Form Validating Trigger Specifications.
+#
+#  Triggers:	a list of triggers; one per line. Each trigger line must be
+#		indented with spaces or tabs in the form. Each line has four
+#		elements:
+#
+#  		Name:   The name of the trigger.
+#
+#  		Type:   'archive'	  external archive access triggers
+#			'bgtask    '      server-side user processes
+#			'auth-check'      check authentication trigger
+#			'auth-check-sso'  sso check authentication trigger
+#			'auth-set'        set authentication trigger
+#			'auth-invalidate' authentication invalidation trigger
+#			'auth-pre-2fa'    mfa trigger - see 'p4 help mfa'
+#			'auth-init-2fa'   mfa trigger - see 'p4 help mfa'
+#			'auth-check-2fa'  mfa trigger - see 'p4 help mfa'
+#			'change-submit'   pre-submit triggers
+#			'change-content'  modify content submit triggers
+#			'change-commit'   post-submit triggers
+#			'change-failed'   submit failure fires these triggers
+#			'command'         pre/post user command triggers
+#			'edge-submit'     Edge Server pre-submit
+#			'edge-content'    Edge Server content submit
+#			'failed-over'     post-failover trigger
+#			'failed-back'     post-failback trigger
+#			'fix-add'         pre-add fix triggers
+#			'fix-delete'      pre-delete fix triggers
+#			'form-in'         modify form in triggers
+#			'form-out'        modify form out triggers
+#			'form-save'       pre-save form triggers
+#			'form-commit'     post-save form triggers
+#			'form-delete'     pre-delete form triggers
+#			'graph-push-start'      pre git push triggers
+#			'graph-push-reference'  pre git reference update
+#			'graph-push-reference-complete'
+#			                        post git reference update
+#			'graph-lfs-push'        pre lfs file triggers
+#			'graph-push-complete'   post git push triggers
+#			'heartbeat-missing'     heartbeat missing triggers
+#			'heartbeat-resumed'     heartbeat resumed triggers
+#			'heartbeat-dead'        heartbeat dead triggers
+#			'journal-rotate'  post-journal rotation triggers
+#			'journal-rotate-lock' blocking journal rotate triggers
+#			'pull-archive'    archive transfer triggers
+#			'push-submit'     pre-push triggers
+#			'push-content'    modify content push triggers
+#			'push-commit'     post-push triggers
+#			'service-check'   check auth trigger (service users)
+#			'shelve-submit'   pre-shelve triggers
+#			'shelve-commit'   post-shelve triggers
+#			'shelve-delete'   pre-delete shelve triggers
+#
+#  		Path:   For change-*, edge-*, or shelve-* triggers, a pattern
+#			to match files in the changelist.
+#
+#			For form-* triggers, the type of form: e.g. 'branch'
+#			'client', etc.
+#
+#			For fix-* triggers use 'fix'.
+#
+#			For auth-* triggers use 'auth'.
+#
+#			For graph-* triggers use a pattern to match repo names.
+#
+#			For archive triggers, a file pattern to match the
+#			file name being accessed.
+#
+#			For command triggers, the client command to match.
+#			Must be in the form "(pre|post)-user-$command",
+#			e.g. "pre-user-tag".  The command name is a regular
+#			expression.  See "p4 help grep" for details on
+#			syntax.
+#
+#			For journal-rotate* triggers, use 'any' or either the
+#			server.id or cluster.id of the server(s) that
+#			should run the triggers.
+#
+#			For failed-over triggers use 'failed-over'.
+#
+#			For failed-back triggers use 'failed-back'.
+#
+#			For heartbeat-* triggers use 'heartbeat'.
+#
+#  		Command: The OS command to run for validation.  If the
+#			 command contains spaces, the whole command must
+#			 be quoted.  See 'p4 help triggers' for a list of
+#			 variables that can be expanded in the command
+#			 string.
+#
+#  For example,
+#
+#	Triggers:
+#		cscheck change-submit //depot/... "cmd %changelist%"
+#		no-oblits command pre-user-obliterate fail
+#		mkspec form-out client "%quote%//trig/scr.pl%quote%"
+#		daily_verify bgtask unset "verify.pl"
+#
+# See 'p4 help triggers' for more information about triggers.
+
+Triggers:
+	check-case change-submit //... "/p4/common/site/bin/triggers/CheckCaseTrigger.py allowbypass=no %changelist%"
