@@ -74,10 +74,6 @@
 		{
 			"Name": "DatasmithFBXImporter",
 			"Enabled": true
-		},
-		{
-			"Name": "Cargo",
-			"Enabled": true
 		}
 	]
 }
